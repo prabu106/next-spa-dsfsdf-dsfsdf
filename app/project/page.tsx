@@ -236,9 +236,9 @@ function PageButton({
 function ProjectsFooter() {
   return (
     <footer className="bg-[linear-gradient(180deg,#103a78_0%,#0d326a_100%)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-10">
-        <div className="grid gap-8 border-b border-white/20 pb-8 md:grid-cols-2 xl:grid-cols-4">
-          <div className="pr-4 xl:border-r xl:border-white/20">
+      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-6 lg:px-10 lg:py-10">
+        <div className="grid gap-8 border-b border-white/20 pb-8 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="xl:border-r xl:border-white/20 xl:pr-8">
             <div className="flex items-center gap-3">
               <CubeLogo />
               <div className="text-xl font-bold">
@@ -246,7 +246,7 @@ function ProjectsFooter() {
                 <span className="text-[#f5a025]">X X</span>
               </div>
             </div>
-            <p className="mt-5 max-w-xs text-lg leading-8 text-white/88">
+            <p className="mt-5 max-w-xs text-base leading-7 text-white/88 sm:text-lg sm:leading-8">
               Empowering students to innovate, create, and lead through hands-on
               learning and real-world projects.
             </p>
@@ -254,7 +254,7 @@ function ProjectsFooter() {
 
           <div className="xl:border-r xl:border-white/20 xl:px-8">
             <h3 className="text-2xl font-bold">Quick Links</h3>
-            <div className="mt-4 space-y-3 text-lg text-white/92">
+            <div className="mt-4 space-y-3 text-base text-white/92 sm:text-lg">
               {quickLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block hover:text-[#ffd189]">
                   {link.label}
@@ -265,7 +265,7 @@ function ProjectsFooter() {
 
           <div className="xl:border-r xl:border-white/20 xl:px-8">
             <h3 className="text-2xl font-bold">Contact Info</h3>
-            <div className="mt-4 space-y-4 text-lg text-white/92">
+            <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
               <div className="flex items-start gap-3">
                 <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
                 <span>+91 12345 67890</span>
@@ -284,16 +284,16 @@ function ProjectsFooter() {
           <div className="xl:px-8">
             <h3 className="text-2xl font-bold">Subscribe to Our Newsletter</h3>
             <div className="mt-3 h-1 w-16 rounded-full bg-[#f5a025]" />
-            <p className="mt-4 text-lg leading-8 text-white/90">
+            <p className="mt-4 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
               Stay updated with our latest projects, workshops, and news.
             </p>
-            <div className="mt-6 flex overflow-hidden rounded-md bg-white shadow-[0_10px_24px_rgba(0,0,0,0.14)]">
+            <div className="mt-6 flex flex-col overflow-hidden rounded-md bg-white shadow-[0_10px_24px_rgba(0,0,0,0.14)] sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="min-w-0 flex-1 px-4 py-3 text-base text-[#243250] outline-none placeholder:text-[#7d8aa8]"
               />
-              <button className="bg-[linear-gradient(180deg,#f7a12a_0%,#ef8217_100%)] px-5 py-3 text-base font-bold text-white">
+              <button className="w-full bg-[linear-gradient(180deg,#f7a12a_0%,#ef8217_100%)] px-5 py-3 text-base font-bold text-white sm:w-auto">
                 Subscribe
               </button>
             </div>

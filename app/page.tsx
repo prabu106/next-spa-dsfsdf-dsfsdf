@@ -235,9 +235,9 @@ function ProjectCard({
           {title}
         </h3>
         <p className="pt-4 text-base leading-7 text-[#37435f]">{description}</p>
-        <button className="mt-5 rounded-md bg-[linear-gradient(180deg,#1f5aad_0%,#144487_100%)] px-6 py-2.5 text-sm font-bold text-white shadow-[0_10px_24px_rgba(19,68,135,0.25)] transition hover:brightness-110">
+        <Link href="/viewProject" className="mt-5 inline-block rounded-md bg-[linear-gradient(180deg,#1f5aad_0%,#144487_100%)] px-6 py-2.5 text-sm font-bold text-white shadow-[0_10px_24px_rgba(19,68,135,0.25)] transition hover:brightness-110">
           View Project
-        </button>
+        </Link>
       </div>
     </article>
   );

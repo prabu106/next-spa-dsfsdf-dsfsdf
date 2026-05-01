@@ -191,9 +191,9 @@ function ProjectCard({
       <div className="p-5">
         <h3 className="text-2xl font-bold leading-snug text-[#1d4388]">{title}</h3>
         <p className="mt-3 text-[17px] leading-8 text-[#434c5f]">{description}</p>
-        <button className="mt-5 rounded-md bg-[linear-gradient(180deg,#1f5aad_0%,#144487_100%)] px-6 py-2.5 text-base font-bold text-white shadow-[0_10px_20px_rgba(20,68,135,0.22)]">
+        <Link href="/viewProject" className="mt-5 inline-block rounded-md bg-[linear-gradient(180deg,#1f5aad_0%,#144487_100%)] px-6 py-2.5 text-base font-bold text-white shadow-[0_10px_20px_rgba(20,68,135,0.22)]">
           View Project
-        </button>
+        </Link>
       </div>
     </article>
   );

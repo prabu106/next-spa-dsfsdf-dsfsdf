@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({
       lang="en"
       className={poppins.className}
     >
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       <link rel="preload" as="image" href="/aboutbanner.png" />
       <link rel="preload" as="image" href="/contact.png" />
       <link rel="preload" as="image" href="/hero.png" />

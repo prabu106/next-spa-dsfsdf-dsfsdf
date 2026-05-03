@@ -45,14 +45,14 @@ const services = [
 const pricingPlans = [
   {
     title: "Mini Projects",
-    price: "₹ 2,000 - ₹ 5,000",
+    price: "Rs. 2,000 - Rs. 5,000",
     icon: CapIcon,
     accent: "blue" as const,
     features: ["Diploma & UG Projects", "Multiple Technologies", "Source Code", "Report & PPT"],
   },
   {
     title: "Final Year Projects",
-    price: "₹ 5,000 - ₹ 15,000",
+    price: "Rs. 5,000 - Rs. 15,000",
     icon: TrophyIcon,
     accent: "orange" as const,
     popular: true,
@@ -60,7 +60,7 @@ const pricingPlans = [
   },
   {
     title: "Internship Training",
-    price: "₹ 3,000 - ₹ 20,000",
+    price: "Rs. 3,000 - Rs. 20,000",
     icon: BriefcaseIcon,
     accent: "blue" as const,
     features: ["Live Projects", "Industry Experts", "Certificate Provided", "Flexible Duration"],
@@ -83,17 +83,6 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const serviceLinks = [
-  "Project Development",
-  "Mini Projects",
-  "Final Year Projects",
-  "Internship Training",
-  "Documentation",
-  "Hardware & IoT",
-];
-
-const resourceLinks = ["Guides & Tutorials", "Project Ideas", "Tools & Software", "Research Papers", "FAQs"];
-
 export default function ServicePage() {
   return (
     <main className="min-h-screen bg-white text-[#071f49]">
@@ -110,18 +99,21 @@ export default function ServicePage() {
 
 function ServiceHeader() {
   return (
-    <header className="relative z-20 border-b border-white/10 bg-[#001f55] text-white shadow-[0_10px_30px_rgba(0,18,55,0.2)]">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10">
-        <Link href="/" className="flex items-center gap-3">
-          <CubeLogo />
-          <div className="text-xl font-bold leading-tight tracking-tight sm:text-2xl">
-            <div>
-              Student <span className="text-[#ff8a00]">Project</span>
-            </div>
-            <div className="-mt-1 text-[#ff8a00]">Centre</div>
+    <header className="relative z-10 border-b border-white/10 bg-[linear-gradient(180deg,#174c99_0%,#0e3f87_100%)] text-white shadow-lg">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-10">
+        <div className="flex items-center gap-3">
+          <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]">
+            <CubeLogo />
           </div>
-        </Link>
-        <Navbar />
+          <div className="text-xl font-bold leading-tight tracking-tight sm:text-2xl">
+            <span className="text-white">X </span>
+            <span className="text-[#f6a028]">X X</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-6 lg:gap-8">
+          <Navbar />
+        </div>
       </div>
     </header>
   );
@@ -181,7 +173,7 @@ function OfferSection() {
     <section id="services" className="px-5 py-5 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <SectionTitle title="What We Offer" />
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-6 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
@@ -208,15 +200,15 @@ function ServiceCard({
       : "bg-[linear-gradient(180deg,#073987_0%,#002b6f_100%)]";
 
   return (
-    <article className="rounded-lg border border-[#e3e8f0] bg-white px-5 py-5 text-center shadow-[0_8px_20px_rgba(4,29,75,0.08)]">
+    <article className="flex h-full flex-col rounded-lg border border-[#e3e8f0] bg-white px-5 py-5 text-center shadow-[0_8px_20px_rgba(4,29,75,0.08)]">
       <div className={`mx-auto grid h-16 w-16 place-items-center rounded-full text-white ${circleClass}`}>
         <Icon className="h-9 w-9" />
       </div>
       <h3 className="mt-5 min-h-10 text-[15px] font-bold leading-5 text-[#002b72]">{title}</h3>
-      <p className="mt-2 min-h-16 text-sm leading-6 text-[#1d2638]">{description}</p>
+      <p className="mt-2 flex-1 text-sm leading-6 text-[#1d2638]">{description}</p>
       <Link
         href="/contact"
-        className="mt-4 inline-flex rounded px-6 py-2 text-sm font-bold text-white bg-[linear-gradient(180deg,#075fc6_0%,#003c92_100%)]"
+        className="mx-auto mt-4 inline-flex w-fit rounded px-6 py-2 text-sm font-bold text-white bg-[linear-gradient(180deg,#075fc6_0%,#003c92_100%)]"
       >
         View Details
       </Link>
@@ -229,7 +221,7 @@ function PricingSection() {
     <section className="bg-[linear-gradient(180deg,#eaf4ff_0%,#f5f9ff_100%)] px-5 py-5 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <SectionTitle title="Our Pricing Plans" />
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr_1fr_0.96fr]">
+        <div className="mt-6 grid items-stretch gap-6 lg:grid-cols-[1fr_1fr_1fr_0.96fr]">
           {pricingPlans.map((plan) => (
             <PricingCard key={plan.title} {...plan} />
           ))}
@@ -262,21 +254,21 @@ function PricingCard({
   const checkClass = accent === "orange" ? "text-[#ff8500]" : "text-[#003983]";
 
   return (
-    <article className="relative overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(4,29,75,0.12)]">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(4,29,75,0.12)]">
       {popular && (
         <div className="absolute right-[-42px] top-5 z-10 rotate-45 bg-[#ff5a00] px-10 py-1 text-xs font-bold uppercase text-white">
           Popular
         </div>
       )}
-      <div className={`flex items-center gap-4 px-8 py-4 text-white ${headerClass}`}>
+      <div className={`flex min-h-20 items-center gap-4 px-8 py-4 text-white ${headerClass}`}>
         <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#00357d]">
           <Icon className="h-7 w-7" />
         </div>
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className="text-xl font-bold leading-snug">{title}</h3>
       </div>
-      <div className="px-8 py-5">
-        <p className="text-2xl font-bold text-[#002b72]">{price}</p>
-        <ul className="mt-4 space-y-3">
+      <div className="flex flex-1 flex-col px-8 py-5">
+        <p className="min-h-8 whitespace-nowrap text-[22px] font-bold leading-8 text-[#002b72]">{price}</p>
+        <ul className="mt-4 flex-1 space-y-3">
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-3 text-sm text-[#1e293b]">
               <CheckIcon className={`mt-0.5 h-4 w-4 shrink-0 ${checkClass}`} />
@@ -286,7 +278,7 @@ function PricingCard({
         </ul>
         <Link
           href="/contact"
-          className={`mt-6 inline-flex rounded px-8 py-2.5 text-sm font-bold text-white ${
+          className={`mt-6 inline-flex w-fit rounded px-8 py-2.5 text-sm font-bold text-white ${
             accent === "orange" ? "bg-[#ff8500]" : "bg-[#0059bf]"
           }`}
         >
@@ -394,85 +386,75 @@ export function CallToActionSection() {
 
 function ServiceFooter() {
   return (
-    <footer className="bg-[linear-gradient(180deg,#00265e_0%,#001a46_100%)] text-white">
-      <div className="mx-auto max-w-7xl px-5 py-7 lg:px-10">
-        <div className="grid gap-8 border-b border-white/15 pb-6 md:grid-cols-2 xl:grid-cols-[1.35fr_0.9fr_1fr_1fr_1.2fr]">
-          <div>
+    <footer className="bg-[linear-gradient(180deg,#103a78_0%,#0d326a_100%)] text-white">
+      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-6 lg:px-10 lg:py-10">
+        <div className="grid gap-8 border-b border-white/20 pb-8 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="xl:border-r xl:border-white/20 xl:pr-8">
             <div className="flex items-center gap-3">
               <CubeLogo />
-              <div className="text-lg font-bold leading-tight">
-                Student <span className="text-[#ff8a00]">Project</span>
-                <div className="text-[#ff8a00]">Centre</div>
+              <div className="text-xl font-bold">
+                <span className="text-white">X </span>
+                <span className="text-[#f5a025]">X X</span>
               </div>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-6 text-white/90">
-              Empowering students with innovative project ideas and hands-on learning experience.
+            <p className="mt-5 max-w-xs text-base leading-7 text-white/88 sm:text-lg sm:leading-8">
+              Empowering students to innovate, create, and lead through hands-on
+              learning and real-world projects.
             </p>
-            <div className="mt-5 flex gap-3">
-              <SocialIcon label="f" className="bg-[#1d63d8]" />
-              <SocialIcon label="ig" className="bg-[#ff3f7f]" />
-              <SocialIcon label="in" className="bg-[#2174bd]" />
-              <SocialIcon label="yt" className="bg-[#d90f0f]" />
+          </div>
+
+          <div className="xl:border-r xl:border-white/20 xl:px-8">
+            <h3 className="text-2xl font-bold">Quick Links</h3>
+            <div className="mt-4 space-y-3 text-base text-white/92 sm:text-lg">
+              {quickLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block hover:text-[#ffd189]">
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <FooterColumn title="Quick Links" links={quickLinks} />
-          <FooterColumn title="Our Services" items={serviceLinks} />
-          <FooterColumn title="Resources" items={resourceLinks} />
+          <div className="xl:border-r xl:border-white/20 xl:px-8">
+            <h3 className="text-2xl font-bold">Contact Info</h3>
+            <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
+              <div className="flex items-start gap-3">
+                <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
+                <span>+91 12345 67890</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MailIcon className="mt-1 h-5 w-5 shrink-0" />
+                <span>info@XXX.com</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <PinIcon className="mt-1 h-5 w-5 shrink-0" />
+                <span>123, Innovation Lab, Tech Park, India</span>
+              </div>
+            </div>
+          </div>
 
-          <div>
-            <h3 className="text-lg font-bold">Contact Info</h3>
-            <div className="mt-4 space-y-4 text-sm leading-6 text-white/92">
-              <p className="flex gap-3">
-                <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0" />
-                +91 12345 67890
-              </p>
-              <p className="flex gap-3">
-                <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
-                info@studentprojectcentre.com
-              </p>
-              <p className="flex gap-3">
-                <PinIcon className="mt-0.5 h-5 w-5 shrink-0" />
-                123, Innovation Street, Tech City, India - 600001
-              </p>
+          <div className="xl:px-8">
+            <h3 className="text-2xl font-bold">Subscribe to Our Newsletter</h3>
+            <div className="mt-3 h-1 w-16 rounded-full bg-[#f5a025]" />
+            <p className="mt-4 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
+              Stay updated with our latest projects, workshops, and news.
+            </p>
+            <div className="mt-6 flex flex-col overflow-hidden rounded-md bg-white shadow-[0_10px_24px_rgba(0,0,0,0.14)] sm:flex-row">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="min-w-0 flex-1 px-4 py-3 text-base text-[#243250] outline-none placeholder:text-[#7d8aa8]"
+              />
+              <button className="w-full bg-[linear-gradient(180deg,#f7a12a_0%,#ef8217_100%)] px-5 py-3 text-base font-bold text-white sm:w-auto">
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-3 pt-4 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2024 Student Project Centre. All Rights Reserved.</p>
-          <div className="flex gap-5">
-            <Link href="/contact">Privacy Policy</Link>
-            <Link href="/contact">Terms & Conditions</Link>
-          </div>
-        </div>
+        <p className="pt-5 text-center text-lg text-white/90">
+          (c) 2025 X X X. All rights reserved.
+        </p>
       </div>
     </footer>
-  );
-}
-
-function FooterColumn({
-  title,
-  links,
-  items,
-}: {
-  title: string;
-  links?: { label: string; href: string }[];
-  items?: string[];
-}) {
-  return (
-    <div className="xl:border-r xl:border-white/15 xl:pr-6">
-      <h3 className="text-lg font-bold">{title}</h3>
-      <div className="mt-4 space-y-2 text-sm text-white/92">
-        {links?.map((link) => (
-          <Link key={link.href} href={link.href} className="block hover:text-[#ffb453]">
-            {link.label}
-          </Link>
-        ))}
-        {items?.map((item) => (
-          <p key={item}>{item}</p>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -493,14 +475,6 @@ function SectionTitle({ title }: { title: string }) {
     <div className="text-center">
       <h2 className="text-3xl font-bold text-[#003074]">{title}</h2>
       <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-[#ff8a00]" />
-    </div>
-  );
-}
-
-function SocialIcon({ label, className }: { label: string; className: string }) {
-  return (
-    <div className={`grid h-9 w-9 place-items-center rounded-full text-xs font-bold uppercase text-white ${className}`}>
-      {label}
     </div>
   );
 }

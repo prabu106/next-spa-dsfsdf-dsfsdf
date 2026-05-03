@@ -1,182 +1,173 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentType } from "react";
+import Navbar from "../components/Navbar";
 
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Projects", href: "/project" },
-  { label: "Resources", href: "/service" },
-  { label: "Contact", href: "/contact" },
-];
-
-const featureCards = [
+const services = [
   {
-    title: "Workshops & Training",
-    description: "Join our hands-on workshops to learn new skills.",
-    icon: PresentationIcon,
+    title: "Project Development",
+    description: "We develop high quality projects for all technologies with full source code.",
+    icon: CodeIcon,
+    accent: "blue" as const,
   },
   {
-    title: "Project Support",
-    description: "Get expert guidance and mentorship for your projects.",
-    icon: ToolsIcon,
+    title: "Mini Projects",
+    description: "Ready-made mini projects for diploma and undergraduate students.",
+    icon: LightIcon,
+    accent: "orange" as const,
   },
   {
-    title: "Resources & Tools",
-    description: "Access equipment and materials for your projects.",
-    icon: MonitorIcon,
-  },
-];
-
-const projectCards = [
-  {
-    title: "Robotics Challenge",
-    description: "A robotics competition building and programming autonomous robots.",
-    image:
-      "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?auto=format&fit=crop&w=900&q=80",
+    title: "Final Year Projects",
+    description: "IEEE and real-time projects with full documentation and viva support.",
+    icon: CapIcon,
+    accent: "blue" as const,
   },
   {
-    title: "Smart Home System",
-    description: "An IoT-based smart home automation project.",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80",
+    title: "Internship Training",
+    description: "Industrial training with live projects by expert professionals.",
+    icon: GroupIcon,
+    accent: "orange" as const,
   },
   {
-    title: "Eco-Friendly Drone",
-    description: "A sustainable drone made from eco-friendly materials.",
-    image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80",
+    title: "Project Documentation",
+    description: "Synopsis, reports, PPT, and complete project documents.",
+    icon: DocumentIcon,
+    accent: "blue" as const,
+  },
+  {
+    title: "Hardware & IoT Projects",
+    description: "Arduino, Raspberry Pi, sensors, and embedded system projects.",
+    icon: ChipIcon,
+    accent: "orange" as const,
   },
 ];
 
-const reasons = [
+const pricingPlans = [
   {
-    title: "Experienced Mentors",
-    description:
-      "Learn from guides who have helped students take ideas from concept to polished prototype.",
-    icon: MentorIcon,
+    title: "Mini Projects",
+    price: "₹ 2,000 - ₹ 5,000",
+    icon: CapIcon,
+    accent: "blue" as const,
+    features: ["Diploma & UG Projects", "Multiple Technologies", "Source Code", "Report & PPT"],
   },
   {
-    title: "Modern Facilities",
-    description:
-      "Use practical lab space, testing setups, and focused support for building with confidence.",
-    icon: FacilityIcon,
+    title: "Final Year Projects",
+    price: "₹ 5,000 - ₹ 15,000",
+    icon: TrophyIcon,
+    accent: "orange" as const,
+    popular: true,
+    features: ["IEEE / Real-time Projects", "Full Documentation", "Viva Preparation", "Plagiarism Report"],
   },
   {
-    title: "Innovative Resources",
-    description:
-      "Access the tools, kits, and reference material needed to keep projects moving forward.",
-    icon: ResourceIcon,
+    title: "Internship Training",
+    price: "₹ 3,000 - ₹ 20,000",
+    icon: BriefcaseIcon,
+    accent: "blue" as const,
+    features: ["Live Projects", "Industry Experts", "Certificate Provided", "Flexible Duration"],
   },
+];
+
+const stats = [
+  { value: "500+", label: "Projects Completed", icon: BriefcaseIcon },
+  { value: "300+", label: "Happy Students", icon: GroupIcon },
+  { value: "10+", label: "Expert Mentors", icon: UserIcon },
+  { value: "8+", label: "Years of Experience", icon: ClockIcon },
+  { value: "100%", label: "Satisfaction", icon: ShieldIcon },
 ];
 
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "Services", href: "/service" },
   { label: "Projects", href: "/project" },
-  { label: "Resources", href: "/service" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
-const resourceLinks = ["Workshops", "Guides", "Tools", "FAQ", "Blog"];
+const serviceLinks = [
+  "Project Development",
+  "Mini Projects",
+  "Final Year Projects",
+  "Internship Training",
+  "Documentation",
+  "Hardware & IoT",
+];
+
+const resourceLinks = ["Guides & Tutorials", "Project Ideas", "Tools & Software", "Research Papers", "FAQs"];
 
 export default function ServicePage() {
   return (
-    <main className="min-h-screen bg-[#f5f7fb] text-[#1d2b4f]">
-      <Header />
-      <HeroSection />
-      <FeatureSection />
-      <ProjectsSection />
-      <WhyChooseUsSection />
-      <CallToActionSection />
-      <Footer />
+    <main className="min-h-screen bg-white text-[#071f49]">
+      <ServiceHeader />
+      <ServicesHero />
+      <OfferSection />
+      <PricingSection />
+      <StatsSection />
+      <ServiceFooter />
+      <WhatsAppButton />
     </main>
   );
 }
 
-function Header() {
+function ServiceHeader() {
   return (
-    <header className="relative z-10 border-b border-white/10 bg-[linear-gradient(180deg,#174c99_0%,#0e3f87_100%)] text-white shadow-lg">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-10">
-        <div className="flex items-center gap-3">
-          <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]">
-            <CubeLogo />
+    <header className="relative z-20 border-b border-white/10 bg-[#001f55] text-white shadow-[0_10px_30px_rgba(0,18,55,0.2)]">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10">
+        <Link href="/" className="flex items-center gap-3">
+          <CubeLogo />
+          <div className="text-xl font-bold leading-tight tracking-tight sm:text-2xl">
+            <div>
+              Student <span className="text-[#ff8a00]">Project</span>
+            </div>
+            <div className="-mt-1 text-[#ff8a00]">Centre</div>
           </div>
-          <div className="text-xl font-bold tracking-tight sm:text-2xl">
-            <span className="text-white">X </span>
-            <span className="text-[#f6a028]">X X</span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-6 lg:gap-8">
-          <nav className="hidden items-center gap-8 text-base font-bold lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`transition ${
-                  item.href === "/service"
-                    ? "border-b-2 border-[#f6a028] pb-1 text-white"
-                    : "text-white/95 hover:text-[#ffd18a]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <button className="rounded-md bg-[linear-gradient(180deg,#f6a028_0%,#ea7d16_100%)] px-5 py-2.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(234,125,22,0.35)] transition hover:brightness-105">
-            Login
-          </button>
-        </div>
+        </Link>
+        <Navbar />
       </div>
     </header>
   );
 }
 
-function HeroSection() {
+function ServicesHero() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#154b97_0%,#0f3f83_45%,#164e9f_100%)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_36%),linear-gradient(120deg,rgba(255,255,255,0.08),transparent_28%)]" />
-      <div className="relative mx-auto grid max-w-7xl items-stretch gap-0 px-6 py-10 lg:grid-cols-[1.05fr_1fr] lg:px-10 lg:py-0">
-        <div className="flex items-center py-10 lg:py-16">
-          <div className="max-w-xl">
-            <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Empowering Students
-              <br />
-              to <span className="text-[#ffbf42]">Innovate</span> &{" "}
-              <span className="text-[#ffbf42]">Create</span>
-            </h1>
-            <div className="mt-5 h-px w-full max-w-md bg-white/35" />
-            <p className="mt-5 max-w-lg text-base leading-7 text-white/85 sm:text-lg">
-              Get the tools, resources, and support to bring your ideas to life.
-            </p>
+    <section className="relative overflow-hidden bg-[#002a72]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_7%_22%,rgba(255,255,255,0.18)_1px,transparent_2px)] bg-[length:18px_18px] opacity-40" />
+      <div className="absolute -left-8 top-24 h-28 w-28 rotate-45 border border-[#ff8a00]/40" />
+      <div className="absolute right-0 bottom-0 h-48 w-48 rounded-tl-full border-l-[18px] border-t-[18px] border-[#ff8a00]" />
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-lg bg-[linear-gradient(180deg,#f7a12a_0%,#ee7e14_100%)] px-8 py-3.5 text-base font-bold text-white shadow-[0_10px_22px_rgba(238,126,20,0.35)] transition hover:-translate-y-0.5"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/project"
-                className="rounded-lg bg-white px-8 py-3.5 text-base font-bold text-[#234e91] shadow-[0_10px_24px_rgba(7,27,72,0.24)] transition hover:-translate-y-0.5"
-              >
-                Learn More
-              </Link>
-            </div>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-10 lg:grid-cols-[0.86fr_1.14fr] lg:px-10 lg:py-0">
+        <div className="py-8 lg:py-14">
+          <h1 className="text-5xl font-bold leading-tight text-white sm:text-6xl">
+            Our <span className="text-[#ff8a00]">Services</span>
+          </h1>
+          <p className="mt-5 max-w-xl text-xl font-medium leading-9 text-white">
+            We provide end-to-end support for student projects from idea to successful implementation.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-4">
+            <Link
+              href="#services"
+              className="inline-flex items-center gap-3 rounded-md bg-[#ff8600] px-6 py-3 text-base font-bold text-white shadow-[0_14px_26px_rgba(255,134,0,0.3)]"
+            >
+              Explore Services
+              <ArrowIcon className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-md border border-white bg-white/5 px-6 py-3 text-base font-bold text-white"
+            >
+              Contact Us
+              <ArrowIcon className="h-5 w-5" />
+            </Link>
           </div>
         </div>
 
-        <div className="relative min-h-[320px] lg:min-h-[560px]">
-          <div className="absolute inset-y-0 left-0 z-10 hidden w-28 bg-gradient-to-r from-[#154b97] via-[#154b97]/60 to-transparent lg:block" />
+        <div className="relative min-h-[300px] overflow-hidden lg:min-h-[365px]">
+          <div className="absolute inset-y-0 left-0 z-10 hidden w-36 bg-gradient-to-r from-[#002a72] to-transparent lg:block" />
           <Image
             src="/hero.png"
-            alt="Students building a project together"
+            alt="Students working on a robotics project"
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 100vw, 58vw"
             className="object-cover object-center"
           />
         </div>
@@ -185,142 +176,200 @@ function HeroSection() {
   );
 }
 
-function FeatureSection() {
+function OfferSection() {
   return (
-    <section className="relative z-10 -mt-1 px-6 pb-10 lg:px-10">
-      <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
-        {featureCards.map((card) => (
-          <FeatureCard key={card.title} {...card} />
-        ))}
+    <section id="services" className="px-5 py-5 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <SectionTitle title="What We Offer" />
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-function FeatureCard({
+function ServiceCard({
   title,
   description,
   icon: Icon,
+  accent,
 }: {
   title: string;
   description: string;
   icon: ComponentType<{ className?: string }>;
+  accent: "blue" | "orange";
 }) {
+  const circleClass =
+    accent === "orange"
+      ? "bg-[linear-gradient(180deg,#ff9300_0%,#f36f00_100%)]"
+      : "bg-[linear-gradient(180deg,#073987_0%,#002b6f_100%)]";
+
   return (
-    <article className="rounded-2xl border border-[#dde4f1] bg-white px-6 py-6 shadow-[0_14px_40px_rgba(28,52,99,0.12)]">
-      <div className="flex items-start gap-4">
-        <div className="mt-1 text-[#164c99]">
-          <Icon className="h-11 w-11" />
-        </div>
-        <div className="min-w-0">
-          <h3 className="border-b border-[#d8e1f0] pb-2 text-2xl font-bold text-[#1c4a91]">
-            {title}
-          </h3>
-          <p className="pt-3 text-base leading-7 text-[#37435f]">{description}</p>
-        </div>
+    <article className="rounded-lg border border-[#e3e8f0] bg-white px-5 py-5 text-center shadow-[0_8px_20px_rgba(4,29,75,0.08)]">
+      <div className={`mx-auto grid h-16 w-16 place-items-center rounded-full text-white ${circleClass}`}>
+        <Icon className="h-9 w-9" />
       </div>
+      <h3 className="mt-5 min-h-10 text-[15px] font-bold leading-5 text-[#002b72]">{title}</h3>
+      <p className="mt-2 min-h-16 text-sm leading-6 text-[#1d2638]">{description}</p>
+      <Link
+        href="/contact"
+        className="mt-4 inline-flex rounded px-6 py-2 text-sm font-bold text-white bg-[linear-gradient(180deg,#075fc6_0%,#003c92_100%)]"
+      >
+        View Details
+      </Link>
     </article>
   );
 }
 
-function ProjectsSection() {
+function PricingSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14">
-      <SectionHeading
-        title="Recent Projects"
-        description="Check out what our students have been working on."
-      />
-      <div className="mt-8 grid gap-6 lg:grid-cols-3">
-        {projectCards.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
+    <section className="bg-[linear-gradient(180deg,#eaf4ff_0%,#f5f9ff_100%)] px-5 py-5 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <SectionTitle title="Our Pricing Plans" />
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr_1fr_0.96fr]">
+          {pricingPlans.map((plan) => (
+            <PricingCard key={plan.title} {...plan} />
+          ))}
+          <HelpCard />
+        </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({
+function PricingCard({
   title,
-  description,
-  image,
+  price,
+  icon: Icon,
+  accent,
+  features,
+  popular,
 }: {
   title: string;
-  description: string;
-  image: string;
+  price: string;
+  icon: ComponentType<{ className?: string }>;
+  accent: "blue" | "orange";
+  features: string[];
+  popular?: boolean;
 }) {
+  const headerClass =
+    accent === "orange"
+      ? "bg-[linear-gradient(180deg,#ff9100_0%,#f37400_100%)]"
+      : "bg-[linear-gradient(180deg,#073987_0%,#002b6f_100%)]";
+  const checkClass = accent === "orange" ? "text-[#ff8500]" : "text-[#003983]";
+
   return (
-    <article className="overflow-hidden rounded-xl border border-[#d8dfec] bg-white shadow-[0_12px_30px_rgba(29,43,79,0.12)]">
-      <div className="relative h-64">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 1024px) 100vw, 33vw"
-          className="object-cover"
-        />
+    <article className="relative overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(4,29,75,0.12)]">
+      {popular && (
+        <div className="absolute right-[-42px] top-5 z-10 rotate-45 bg-[#ff5a00] px-10 py-1 text-xs font-bold uppercase text-white">
+          Popular
+        </div>
+      )}
+      <div className={`flex items-center gap-4 px-8 py-4 text-white ${headerClass}`}>
+        <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#00357d]">
+          <Icon className="h-7 w-7" />
+        </div>
+        <h3 className="text-xl font-bold">{title}</h3>
       </div>
-      <div className="p-5">
-        <h3 className="border-b border-[#d9e2ef] pb-3 text-2xl font-bold text-[#21498d]">
-          {title}
-        </h3>
-        <p className="pt-4 text-base leading-7 text-[#394763]">{description}</p>
-        <Link href="/viewProject" className="mt-5 inline-block rounded-md bg-[linear-gradient(180deg,#1d57aa_0%,#134587_100%)] px-5 py-2.5 text-base font-bold text-white shadow-[0_8px_18px_rgba(19,69,135,0.28)]">
-          View Project
+      <div className="px-8 py-5">
+        <p className="text-2xl font-bold text-[#002b72]">{price}</p>
+        <ul className="mt-4 space-y-3">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3 text-sm text-[#1e293b]">
+              <CheckIcon className={`mt-0.5 h-4 w-4 shrink-0 ${checkClass}`} />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <Link
+          href="/contact"
+          className={`mt-6 inline-flex rounded px-8 py-2.5 text-sm font-bold text-white ${
+            accent === "orange" ? "bg-[#ff8500]" : "bg-[#0059bf]"
+          }`}
+        >
+          Enquire Now
         </Link>
       </div>
     </article>
   );
 }
 
-function WhyChooseUsSection() {
+function HelpCard() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-12">
-      <SectionHeading
-        title="Why Choose Us?"
-        description="Providing the best environment for student innovation."
-      />
-      <div className="mt-10 grid gap-8 md:grid-cols-3">
-        {reasons.map((reason, index) => (
-          <ReasonCard key={reason.title} {...reason} bordered={index < reasons.length - 1} />
+    <aside className="rounded-lg bg-[linear-gradient(180deg,#002d73_0%,#001d50_100%)] p-8 text-white shadow-[0_8px_24px_rgba(4,29,75,0.16)]">
+      <h3 className="text-3xl font-bold leading-tight">
+        Need Help With <span className="block text-[#ff8a00]">Your Project?</span>
+      </h3>
+      <p className="mt-5 text-base leading-7 text-white">
+        Talk to our experts and get the best solution for your project.
+      </p>
+      <div className="mt-6 space-y-4">
+        <Link
+          href="https://wa.me/911234567890"
+          className="flex items-center justify-center gap-3 rounded-md bg-[#ff8500] px-5 py-3 text-sm font-bold text-white"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+          Chat on WhatsApp
+        </Link>
+        <Link
+          href="/contact"
+          className="flex items-center justify-center gap-3 rounded-md border border-white px-5 py-3 text-sm font-bold text-white"
+        >
+          <CalendarIcon className="h-5 w-5" />
+          Book a Free Demo
+        </Link>
+      </div>
+    </aside>
+  );
+}
+
+function StatsSection() {
+  return (
+    <section className="bg-[#f5f9ff] px-5 pb-5 lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-4 rounded-lg bg-white px-6 py-5 shadow-[0_8px_24px_rgba(4,29,75,0.1)] sm:grid-cols-2 lg:grid-cols-5">
+        {stats.map((stat, index) => (
+          <StatCard key={stat.label} {...stat} bordered={index < stats.length - 1} />
         ))}
       </div>
     </section>
   );
 }
 
-function ReasonCard({
-  title,
-  description,
+function StatCard({
+  value,
+  label,
   icon: Icon,
   bordered,
 }: {
-  title: string;
-  description: string;
+  value: string;
+  label: string;
   icon: ComponentType<{ className?: string }>;
   bordered: boolean;
 }) {
   return (
-    <article className={`px-4 text-center md:px-8 ${bordered ? "md:border-r md:border-[#d9e1ee]" : ""}`}>
-      <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#1d56aa] text-white">
-        <Icon className="h-8 w-8" />
+    <div className={`flex items-center justify-center gap-4 py-2 ${bordered ? "lg:border-r lg:border-[#cfd7e3]" : ""}`}>
+      <Icon className="h-9 w-9 shrink-0 text-[#1765cf]" />
+      <div>
+        <p className="text-2xl font-bold leading-none text-[#002b72]">{value}</p>
+        <p className="mt-1 text-sm text-[#1e293b]">{label}</p>
       </div>
-      <h3 className="mt-5 text-2xl font-bold text-[#21498d]">{title}</h3>
-      <p className="mt-3 text-base leading-7 text-[#404d67]">{description}</p>
-    </article>
+    </div>
   );
 }
 
 export function CallToActionSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-10 lg:px-10 lg:pb-12">
-      <div className="grid items-center gap-8 rounded-2xl bg-[#dfe8f7] px-8 py-8 shadow-[0_12px_26px_rgba(27,51,101,0.08)] lg:grid-cols-[0.95fr_1.05fr] lg:px-12">
+      <div className="grid items-center gap-8 rounded-lg bg-[#dfe8f7] px-8 py-8 shadow-[0_12px_26px_rgba(27,51,101,0.08)] lg:grid-cols-[0.95fr_1.05fr] lg:px-12">
         <div>
           <h2 className="text-4xl font-bold tracking-tight text-[#183f83] sm:text-5xl">
             Ready to Start Your Project?
           </h2>
           <p className="mt-4 max-w-xl text-lg leading-8 text-[#3d4a65]">
-            Join thousands of students who are building the future with creativity and
-            innovation.
+            Join students who are building practical projects with focused guidance and support.
           </p>
           <Link
             href="/contact"
@@ -329,144 +378,128 @@ export function CallToActionSection() {
             Get Started Now
           </Link>
         </div>
-
-        <div className="flex justify-center lg:justify-end">
-          <CollaborationIllustration />
+        <div className="relative h-64 overflow-hidden rounded-lg">
+          <Image
+            src="/project.png"
+            alt="Students collaborating on a project"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function Footer() {
+function ServiceFooter() {
   return (
-    <footer className="bg-[linear-gradient(180deg,#153f7b_0%,#0c2f64_100%)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-10">
-        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-2 xl:grid-cols-4">
-          <div className="xl:border-r xl:border-white/15 xl:pr-8">
+    <footer className="bg-[linear-gradient(180deg,#00265e_0%,#001a46_100%)] text-white">
+      <div className="mx-auto max-w-7xl px-5 py-7 lg:px-10">
+        <div className="grid gap-8 border-b border-white/15 pb-6 md:grid-cols-2 xl:grid-cols-[1.35fr_0.9fr_1fr_1fr_1.2fr]">
+          <div>
             <div className="flex items-center gap-3">
               <CubeLogo />
-              <div className="text-xl font-bold">
-                <span className="text-white">X </span>
-                <span className="text-[#f6a028]">X X</span>
+              <div className="text-lg font-bold leading-tight">
+                Student <span className="text-[#ff8a00]">Project</span>
+                <div className="text-[#ff8a00]">Centre</div>
               </div>
             </div>
-            <p className="mt-5 max-w-xs text-lg leading-8 text-white/88">
-              Empowering students to innovate, create, and lead through hands-on
-              learning and real-world projects.
+            <p className="mt-4 max-w-xs text-sm leading-6 text-white/90">
+              Empowering students with innovative project ideas and hands-on learning experience.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <SocialIcon label="f" className="bg-[#4167b2]" />
-              <SocialIcon label="t" className="bg-[#1da1f2]" />
-              <SocialIcon label="ig" className="bg-[linear-gradient(180deg,#ff5f6d_0%,#ff7f11_100%)]" />
-              <SocialIcon label="in" className="bg-[#0a66c2]" />
+            <div className="mt-5 flex gap-3">
+              <SocialIcon label="f" className="bg-[#1d63d8]" />
+              <SocialIcon label="ig" className="bg-[#ff3f7f]" />
+              <SocialIcon label="in" className="bg-[#2174bd]" />
+              <SocialIcon label="yt" className="bg-[#d90f0f]" />
             </div>
           </div>
 
-          <div className="xl:border-r xl:border-white/15 xl:px-8">
-            <h3 className="text-2xl font-bold">Quick Links</h3>
-            <div className="mt-4 space-y-3 text-lg text-white/92">
-              {quickLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block hover:text-[#ffd18a]">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <FooterColumn title="Quick Links" links={quickLinks} />
+          <FooterColumn title="Our Services" items={serviceLinks} />
+          <FooterColumn title="Resources" items={resourceLinks} />
 
-          <div className="xl:border-r xl:border-white/15 xl:px-8">
-            <h3 className="text-2xl font-bold">Resources</h3>
-            <div className="mt-4 space-y-3 text-lg text-white/92">
-              {resourceLinks.map((item) => (
-                <p key={item}>{item}</p>
-              ))}
-            </div>
-          </div>
-
-          <div className="xl:pl-8">
-            <h3 className="text-2xl font-bold">Contact Info</h3>
-            <div className="mt-4 space-y-4 text-lg text-white/92">
-              <div className="flex items-start gap-3">
-                <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>+91 12345 67890</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <MailIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>info@XXX.com</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <PinIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>123, Innovation Lab, Tech Park, Bengaluru - 560100, Karnataka, India</span>
-              </div>
+          <div>
+            <h3 className="text-lg font-bold">Contact Info</h3>
+            <div className="mt-4 space-y-4 text-sm leading-6 text-white/92">
+              <p className="flex gap-3">
+                <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0" />
+                +91 12345 67890
+              </p>
+              <p className="flex gap-3">
+                <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
+                info@studentprojectcentre.com
+              </p>
+              <p className="flex gap-3">
+                <PinIcon className="mt-0.5 h-5 w-5 shrink-0" />
+                123, Innovation Street, Tech City, India - 600001
+              </p>
             </div>
           </div>
         </div>
-
-        <p className="pt-5 text-center text-lg text-white/90">
-          © 2025 X X X. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-3 pt-4 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2024 Student Project Centre. All Rights Reserved.</p>
+          <div className="flex gap-5">
+            <Link href="/contact">Privacy Policy</Link>
+            <Link href="/contact">Terms & Conditions</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
 
-function SectionHeading({
+function FooterColumn({
   title,
-  description,
+  links,
+  items,
 }: {
   title: string;
-  description: string;
+  links?: { label: string; href: string }[];
+  items?: string[];
 }) {
   return (
-    <div>
-      <h2 className="shrink-0 text-4xl font-bold tracking-tight text-[#21498d]">{title}</h2>
-      <p className="mt-3 text-lg text-[#3f4b66]">{description}</p>
+    <div className="xl:border-r xl:border-white/15 xl:pr-6">
+      <h3 className="text-lg font-bold">{title}</h3>
+      <div className="mt-4 space-y-2 text-sm text-white/92">
+        {links?.map((link) => (
+          <Link key={link.href} href={link.href} className="block hover:text-[#ffb453]">
+            {link.label}
+          </Link>
+        ))}
+        {items?.map((item) => (
+          <p key={item}>{item}</p>
+        ))}
+      </div>
     </div>
   );
 }
 
-function CollaborationIllustration() {
+function WhatsAppButton() {
   return (
-    <svg
-      viewBox="0 0 520 220"
-      fill="none"
-      aria-hidden="true"
-      className="h-auto w-full max-w-[380px]"
+    <Link
+      href="https://wa.me/911234567890"
+      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 z-30 grid h-14 w-14 place-items-center rounded-full bg-[#19c766] text-white shadow-[0_12px_24px_rgba(25,199,102,0.35)]"
     >
-      <ellipse cx="260" cy="188" rx="178" ry="20" fill="#cddbf0" />
-      <circle cx="122" cy="54" r="12" fill="#aec2e4" />
-      <circle cx="168" cy="30" r="8" fill="#aec2e4" />
-      <circle cx="392" cy="50" r="14" fill="#aec2e4" />
-      <circle cx="440" cy="86" r="10" fill="#aec2e4" />
-      <circle cx="304" cy="34" r="24" fill="#f6b238" />
-      <path d="M304 18v20m-10-10h20" stroke="#fff" strokeWidth="4" strokeLinecap="round" />
-      <circle cx="166" cy="92" r="22" fill="#173f82" />
-      <circle cx="236" cy="82" r="24" fill="#f6b238" />
-      <circle cx="308" cy="92" r="22" fill="#173f82" />
-      <circle cx="378" cy="88" r="22" fill="#f6b238" />
-      <rect x="144" y="108" width="44" height="58" rx="18" fill="#4478c9" />
-      <rect x="212" y="102" width="48" height="64" rx="18" fill="#173f82" />
-      <rect x="284" y="110" width="46" height="56" rx="18" fill="#4478c9" />
-      <rect x="354" y="106" width="48" height="60" rx="18" fill="#173f82" />
-      <rect x="140" y="148" width="54" height="12" rx="6" fill="#0d2f63" />
-      <rect x="208" y="144" width="58" height="16" rx="8" fill="#0d2f63" />
-      <rect x="280" y="148" width="56" height="12" rx="6" fill="#0d2f63" />
-      <rect x="350" y="146" width="58" height="14" rx="7" fill="#0d2f63" />
-    </svg>
+      <WhatsAppIcon className="h-8 w-8" />
+    </Link>
   );
 }
 
-function SocialIcon({
-  label,
-  className,
-}: {
-  label: string;
-  className: string;
-}) {
+function SectionTitle({ title }: { title: string }) {
   return (
-    <div
-      className={`grid h-12 w-12 place-items-center rounded-md text-base font-bold uppercase text-white shadow-[0_8px_18px_rgba(0,0,0,0.18)] ${className}`}
-    >
+    <div className="text-center">
+      <h2 className="text-3xl font-bold text-[#003074]">{title}</h2>
+      <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-[#ff8a00]" />
+    </div>
+  );
+}
+
+function SocialIcon({ label, className }: { label: string; className: string }) {
+  return (
+    <div className={`grid h-9 w-9 place-items-center rounded-full text-xs font-bold uppercase text-white ${className}`}>
       {label}
     </div>
   );
@@ -474,7 +507,7 @@ function SocialIcon({
 
 function CubeLogo() {
   return (
-    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="h-9 w-9">
+    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="h-12 w-12 shrink-0">
       <path d="M32 5 53 16.5 32 28 11 16.5 32 5Z" fill="#F7B13A" />
       <path d="M11 16.5 32 28v23L11 39.5v-23Z" fill="#8FB2E6" />
       <path d="M53 16.5 32 28v23l21-11.5v-23Z" fill="#F08A1C" />
@@ -490,127 +523,171 @@ function CubeLogo() {
   );
 }
 
-function PresentationIcon({ className }: { className?: string }) {
+function IconBase({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <rect x="8" y="8" width="32" height="22" rx="2" stroke="currentColor" strokeWidth="3" />
-      <path
-        d="M24 30v10m-7 0h14M14 40l10-10 10 10"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M18 18h12m-6-4v8"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      {children}
     </svg>
   );
 }
 
-function ToolsIcon({ className }: { className?: string }) {
+function CodeIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <path
-        d="M20 10a10 10 0 0 0 0 20c1.5 0 3-.3 4.2-.9l12.8 12.8 4-4-12.8-12.8A10 10 0 1 0 20 10Z"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      <path d="m30 8 10 10M32 28l-8 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-    </svg>
+    <IconBase className={className}>
+      <path d="m9 7-5 5 5 5M15 7l5 5-5 5M13 5l-2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </IconBase>
   );
 }
 
-function MonitorIcon({ className }: { className?: string }) {
+function LightIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <rect x="6" y="8" width="36" height="24" rx="3" stroke="currentColor" strokeWidth="3" />
-      <path
-        d="M18 40h12m-6-8v8M14 18h9l3 4h8"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <IconBase className={className}>
+      <path d="M9 18h6M10 22h4M8.4 14.6a6 6 0 1 1 7.2 0c-.9.7-1.1 1.4-1.1 2.4h-5c0-1-.2-1.7-1.1-2.4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 2v2M4.9 4.9l1.4 1.4M2 12h2M19.1 4.9l-1.4 1.4M20 12h2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
   );
 }
 
-function MentorIcon({ className }: { className?: string }) {
+function CapIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <circle cx="24" cy="14" r="6" fill="currentColor" />
-      <path
-        d="M14 38c0-5.5 4.5-10 10-10s10 4.5 10 10M10 22h28"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-    </svg>
+    <IconBase className={className}>
+      <path d="m3 8 9-4 9 4-9 4-9-4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M7 10v5c2.8 2 7.2 2 10 0v-5M21 8v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
   );
 }
 
-function FacilityIcon({ className }: { className?: string }) {
+function GroupIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <rect x="8" y="10" width="32" height="24" rx="3" stroke="currentColor" strokeWidth="3" />
-      <path
-        d="M16 18h8v8h-8zm12 0h4m-4 8h8M14 38h20"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-    </svg>
+    <IconBase className={className}>
+      <circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17" cy="9" r="2.5" stroke="currentColor" strokeWidth="2" />
+      <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15c3 0 5 2.1 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
   );
 }
 
-function ResourceIcon({ className }: { className?: string }) {
+function DocumentIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className={className}>
-      <path
-        d="M8 14h14v20H8zM26 14h14v8H26zM26 26h14v8H26z"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      <path d="M22 24h4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-    </svg>
+    <IconBase className={className}>
+      <path d="M6 3h8l4 4v14H6V3Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M14 3v5h4M9 13h6M9 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function ChipIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="2" />
+      <rect x="10" y="10" width="4" height="4" stroke="currentColor" strokeWidth="2" />
+      <path d="M4 9h3M4 15h3M17 9h3M17 15h3M9 4v3M15 4v3M9 17v3M15 17v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function TrophyIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="M8 4h8v5a4 4 0 0 1-8 0V4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M8 6H5v2a3 3 0 0 0 3 3M16 6h3v2a3 3 0 0 1-3 3M12 13v4M9 21h6M10 17h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="M9 7V5h6v2M4 8h16v11H4V8Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M4 13h16M10 13v2h4v-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function UserIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <circle cx="12" cy="8" r="4" fill="currentColor" />
+      <path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7" fill="currentColor" />
+    </IconBase>
+  );
+}
+
+function ClockIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <path d="M12 7v5l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function ShieldIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="M12 3 20 6v6c0 4.7-3.3 7.7-8 9-4.7-1.3-8-4.3-8-9V6l8-3Z" fill="currentColor" />
+      <path d="m8.5 12 2.3 2.3 4.7-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </IconBase>
+  );
+}
+
+function ArrowIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <circle cx="12" cy="12" r="10" fill="currentColor" />
+      <path d="m10 8 4 4-4 4" stroke="#003074" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </IconBase>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="m5 12 4 4 10-10" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </IconBase>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="M5.2 19 6.3 15.7A7.5 7.5 0 1 1 9 18.3L5.2 19Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M9.4 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c.7 1.3 1.7 2.2 3 2.8l.5-.6c.2-.2.4-.3.7-.2l1.4.7c.3.1.4.3.4.6v.4c0 .5-.4.9-.9 1-3.7-.1-7.1-3.3-7.6-6.9Z" fill="currentColor" />
+    </IconBase>
+  );
+}
+
+function CalendarIcon({ className }: { className?: string }) {
+  return (
+    <IconBase className={className}>
+      <path d="M5 5h14v15H5V5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M8 3v4M16 3v4M5 10h14M9 14h2M13 14h2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </IconBase>
   );
 }
 
 function PhoneIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
-      <path
-        d="M7 4h3l1.5 4-2 1.7a15 15 0 0 0 4.8 4.8L16 12l4 1.5v3c0 1.1-.9 2-2 2C10.3 18.5 5.5 13.7 5.5 8c0-1.1.9-2 2-2Z"
-        fill="currentColor"
-      />
-    </svg>
+    <IconBase className={className}>
+      <path d="M7 4h3l1.5 4-2 1.7a15 15 0 0 0 4.8 4.8L16 12l4 1.5v3c0 1.1-.9 2-2 2C10.3 18.5 5.5 13.7 5.5 8c0-1.1.9-2 2-2Z" fill="currentColor" />
+    </IconBase>
   );
 }
 
 function MailIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+    <IconBase className={className}>
       <path d="M4 6h16v12H4z" stroke="currentColor" strokeWidth="2" />
       <path d="m5 7 7 6 7-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-    </svg>
+    </IconBase>
   );
 }
 
 function PinIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
-      <path
-        d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
+    <IconBase className={className}>
+      <path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
       <circle cx="12" cy="10" r="2.5" fill="currentColor" />
-    </svg>
+    </IconBase>
   );
 }

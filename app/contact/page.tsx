@@ -22,12 +22,12 @@ const quickLinks = [
 const contactDetails = [
     {
         title: "Phone",
-        lines: ["+91 12345 67890"],
+        lines: ["+91 9884867302"],
         icon: PhoneIcon,
     },
     {
         title: "Email",
-        lines: ["info@XXX.com"],
+        lines: ["prabu.106@gmail.com"],
         icon: MailIcon,
     },
     {
@@ -79,8 +79,8 @@ function ContactHeader() {
                         <CubeLogo />
                     </div>
                     <div className="text-xl font-bold tracking-tight sm:text-2xl">
-                        <span className="text-white">X </span>
-                        <span className="text-[#f6a028]">X X</span>
+                        <span className="text-white">Sparrow </span>
+                        <span className="text-[#f6a028]">Info Tech</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-6 lg:gap-8">
@@ -353,7 +353,7 @@ function LocationSection() {
 
                         <div className="absolute left-[52%] top-[46%] flex -translate-x-1/2 -translate-y-1/2 items-center gap-3">
                             <MapPinMarker />
-                            <span className="text-xl font-bold text-[#de3521]">X X X</span>
+                            <span className="text-xl font-bold text-[#de3521]">Sparrow Info Tech</span>
                         </div>
                     </div>
                 </div>
@@ -406,11 +406,11 @@ function ContactFooter() {
                         <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
                             <div className="flex items-start gap-3">
                                 <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
-                                <span>+91 12345 67890</span>
+                                <span>+91 9884867302</span>
                             </div>
                             <div className="flex items-start gap-3">
                                 <MailIcon className="mt-1 h-5 w-5 shrink-0" />
-                                <span>info@XXX.com</span>
+                                <span>prabu.106@gmail.com</span>
                             </div>
                             <div className="flex items-start gap-3">
                                 <PinIcon className="mt-1 h-5 w-5 shrink-0" />
@@ -439,7 +439,7 @@ function ContactFooter() {
                 </div>
 
                 <p className="pt-5 text-center text-lg text-white/90">
-                    © 2025 X X X. All rights reserved.
+                    &copy; 2026 Sparrow Info Tech. All rights reserved.
                 </p>
             </div>
         </footer>

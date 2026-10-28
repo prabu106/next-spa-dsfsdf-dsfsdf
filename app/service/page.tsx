@@ -105,9 +105,9 @@ function ServiceHeader() {
           <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]">
             <CubeLogo />
           </div>
-          <div className="text-xl font-bold leading-tight tracking-tight sm:text-2xl">
-            <span className="text-white">X </span>
-            <span className="text-[#f6a028]">X X</span>
+          <div className="text-xl font-bold tracking-tight sm:text-2xl">
+            <span className="text-white">Sparrow </span>
+            <span className="text-[#f6a028]">Info Tech</span>
           </div>
         </div>
 
@@ -278,9 +278,8 @@ function PricingCard({
         </ul>
         <Link
           href="/contact"
-          className={`mt-6 inline-flex w-fit rounded px-8 py-2.5 text-sm font-bold text-white ${
-            accent === "orange" ? "bg-[#ff8500]" : "bg-[#0059bf]"
-          }`}
+          className={`mt-6 inline-flex w-fit rounded px-8 py-2.5 text-sm font-bold text-white ${accent === "orange" ? "bg-[#ff8500]" : "bg-[#0059bf]"
+            }`}
         >
           Enquire Now
         </Link>
@@ -300,7 +299,7 @@ function HelpCard() {
       </p>
       <div className="mt-6 space-y-4">
         <Link
-          href="https://wa.me/911234567890"
+          href="https://wa.me/919884867302"
           className="flex items-center justify-center gap-3 rounded-md bg-[#ff8500] px-5 py-3 text-sm font-bold text-white"
         >
           <WhatsAppIcon className="h-5 w-5" />
@@ -419,15 +418,15 @@ function ServiceFooter() {
             <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
               <div className="flex items-start gap-3">
                 <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>+91 12345 67890</span>
+                <span>+91 9884867302</span>
               </div>
               <div className="flex items-start gap-3">
                 <MailIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>info@XXX.com</span>
+                <span>prabu.106@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <PinIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>123, Innovation Lab, Tech Park, India</span>
+                <span>123, Innovation Lab, Tech Park, Bengaluru - 560100, Karnataka, India</span>
               </div>
             </div>
           </div>
@@ -451,7 +450,7 @@ function ServiceFooter() {
           </div>
         </div>
         <p className="pt-5 text-center text-lg text-white/90">
-          (c) 2025 X X X. All rights reserved.
+          &copy; 2026 Sparrow Info Tech. All rights reserved.
         </p>
       </div>
     </footer>
@@ -461,7 +460,7 @@ function ServiceFooter() {
 function WhatsAppButton() {
   return (
     <Link
-      href="https://wa.me/911234567890"
+      href="https://wa.me/919884867302"
       aria-label="Chat on WhatsApp"
       className="fixed bottom-6 right-6 z-30 grid h-14 w-14 place-items-center rounded-full bg-[#19c766] text-white shadow-[0_12px_24px_rgba(25,199,102,0.35)]"
     >

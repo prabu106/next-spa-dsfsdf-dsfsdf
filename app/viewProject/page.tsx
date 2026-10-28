@@ -135,8 +135,8 @@ function Header() {
             <CubeLogo className="h-9 w-9" />
           </div>
           <div className="text-xl font-bold tracking-tight sm:text-2xl">
-            <span className="text-white">Student </span>
-            <span className="text-[#f6a028]">Project Centre</span>
+            <span className="text-white">Sparrow </span>
+            <span className="text-[#f6a028]">Info Tech</span>
           </div>
         </Link>
 
@@ -433,7 +433,7 @@ function PriceCard() {
       </div>
       <PaymentButton />
 
-      
+
     </div>
   );
 }
@@ -495,8 +495,8 @@ function Footer() {
           <div>
             <h3 className="text-lg font-bold">Contact Us</h3>
             <div className="mt-5 space-y-4 text-sm leading-6 text-white/90">
-              <p>+91 12345 67890</p>
-              <p>info@studentprojectcentre.com</p>
+              <p>+91 9884867302</p>
+              <p>prabu.106@gmail.com</p>
               <p>123, Innovation Street, Tech City, India - 600001</p>
             </div>
           </div>

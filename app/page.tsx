@@ -101,8 +101,8 @@ function Header() {
             <CubeLogo />
           </div>
           <div className="text-xl font-bold tracking-tight sm:text-2xl">
-            <span className="text-white">X </span>
-            <span className="text-[#f6a028]">X X</span>
+            <span className="text-white">Sparrow </span>
+            <span className="text-[#f6a028]">Info Tech</span>
           </div>
         </div>
 
@@ -373,11 +373,11 @@ function Footer() {
             <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
               <div className="flex items-start gap-3">
                 <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>+91 12345 67890</span>
+                <span>+91 9884867302</span>
               </div>
               <div className="flex items-start gap-3">
                 <MailIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>info@XXX.com</span>
+                <span>prabu.106@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <PinIcon className="mt-1 h-5 w-5 shrink-0" />
@@ -406,7 +406,7 @@ function Footer() {
         </div>
 
         <p className="pt-5 text-center text-lg text-white/90">
-          ? 2025 x x x. All rights reserved.
+          &copy; 2026 Sparrow Info Tech. All rights reserved.
         </p>
       </div>
     </footer>

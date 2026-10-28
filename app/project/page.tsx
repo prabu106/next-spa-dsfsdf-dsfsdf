@@ -92,8 +92,8 @@ function ProjectsHeader() {
             <CubeLogo />
           </div>
           <div className="text-xl font-bold tracking-tight sm:text-2xl">
-            <span className="text-white">X </span>
-            <span className="text-[#f6a028]">X X</span>
+            <span className="text-white">Sparrow </span>
+            <span className="text-[#f6a028]">Info Tech</span>
           </div>
         </div>
 
@@ -143,8 +143,8 @@ function ProjectsFilterBar() {
             <button
               key={category}
               className={`border-[#dde4ef] px-4 py-5 text-center text-lg font-bold transition ${index === 0
-                  ? "bg-[linear-gradient(180deg,#f7a12a_0%,#ef8217_100%)] text-white"
-                  : "border-l text-[#21498d] hover:bg-[#f8fbff]"
+                ? "bg-[linear-gradient(180deg,#f7a12a_0%,#ef8217_100%)] text-white"
+                : "border-l text-[#21498d] hover:bg-[#f8fbff]"
                 }`}
             >
               {category}
@@ -224,8 +224,8 @@ function PageButton({
   return (
     <button
       className={`rounded-md border px-4 py-2.5 text-base transition ${active
-          ? "border-[#1f5aad] bg-[#1f5aad] font-bold text-white"
-          : "border-[#d6deea] bg-white text-[#4a556b] hover:border-[#1f5aad] hover:text-[#1f5aad]"
+        ? "border-[#1f5aad] bg-[#1f5aad] font-bold text-white"
+        : "border-[#d6deea] bg-white text-[#4a556b] hover:border-[#1f5aad] hover:text-[#1f5aad]"
         }`}
     >
       {label}
@@ -268,15 +268,15 @@ function ProjectsFooter() {
             <div className="mt-4 space-y-4 text-base text-white/92 sm:text-lg">
               <div className="flex items-start gap-3">
                 <PhoneIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>+91 12345 67890</span>
+                <span>+91 9884867302</span>
               </div>
               <div className="flex items-start gap-3">
                 <MailIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>info@XXX.com</span>
+                <span>prabu.106@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <PinIcon className="mt-1 h-5 w-5 shrink-0" />
-                <span>123, Innovation Lab, Tech Park, India</span>
+                <span>123, Innovation Lab, Tech Park, Bengaluru - 560100, Karnataka, India</span>
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@ function ProjectsFooter() {
         </div>
 
         <p className="pt-5 text-center text-lg text-white/90">
-          © 2025 X X X. All rights reserved.
+          &copy; 2026 Sparrow Info Tech. All rights reserved.
         </p>
       </div>
     </footer>
